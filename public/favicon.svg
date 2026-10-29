@@ -1,12 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="8" fill="url(#grad)"/>
-  <path d="M10 22 L16 10 L22 22" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M12 18 L20 18" stroke="white" stroke-width="2" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <defs>
-    <linearGradient id="grad" x1="0" y1="0" x2="32" y2="32">
+    <!-- Background: Apple Deep Royal Indigo Gradient -->
+    <linearGradient id="appleBg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0071E3"/>
-      <stop offset="100%" stop-color="#5856D6"/>
+      <stop offset="45%" stop-color="#3A36D5"/>
+      <stop offset="100%" stop-color="#6025F5"/>
     </linearGradient>
-  </defs>
-</svg>
 
+    <!-- Warm Radiant Flame Gradient -->
+    <linearGradient id="flameGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF375F"/>
+      <stop offset="35%" stop-color="#FF5B00"/>
+      <stop offset="70%" stop-color="#FF9F0A"/>
+      <stop offset="100%" stop-color="#FFD60A"/>
+    </linearGradient>
+
+    <!-- Inner Core Glow -->
+    <linearGradient id="coreGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FFF4D0"/>
+    </linearGradient>
+
+    <!-- Subtle Bevel Border Highlight -->
+    <linearGradient id="rimGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35"/>
+      <stop offset="40%" stop-color="#FFFFFF" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.15"/>
+    </linearGradient>
+
+    <!-- Top Soft Ambient Highlight -->
+    <radialGradient id="topGlow" cx="50%" cy="10%" r="60%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Drop Shadow for crisp elevation at all sizes -->
+    <filter id="shadow" x="-20%" y="-15%" width="140%" height="135%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0F0C3B" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Base Apple Squircle with Continuous Curvature -->
+  <rect width="64" height="64" rx="15" fill="url(#appleBg)"/>
+  <rect width="64" height="64" rx="15" fill="url(#topGlow)"/>
+  <rect x="0.5" y="0.5" width="63" height="63" rx="14.5" fill="none" stroke="url(#rimGlow)" stroke-width="1"/>
+
+  <!-- Iconic FIRE Mark -->
+  <g filter="url(#shadow)">
+    <!-- Main Outer Flame (Smooth organic curves) -->
+    <path d="M32 10.5C32 10.5 45.5 21.5 45.5 35C45.5 44 39.5 50.5 32 50.5C24.5 50.5 18.5 44 18.5 35C18.5 24 28 17.5 32 10.5Z" fill="url(#flameGrad)"/>
+
+    <!-- Dynamic Compounding Swell (Left rising curve) -->
+    <path d="M32 10.5C30.5 16.5 24 23 24 33C24 38.5 27 43 32 46C29 44 27 40 27 35C27 28 31 20 32 10.5Z" fill="#FFFFFF" fill-opacity="0.32"/>
+
+    <!-- Inner Core Flame (Luminous center) -->
+    <path d="M32 23C32 23 38.5 29.5 38.5 37.5C38.5 42.5 35.5 46 32 46C28.5 46 25.5 42.5 25.5 37.5C25.5 31 30 26.5 32 23Z" fill="url(#coreGrad)"/>
+
+    <!-- Summit Star / Spark of Independence -->
+    <path d="M32 30.5L33.6 34.6L37.5 36.2L33.6 37.8L32 41.9L30.4 37.8L26.5 36.2L30.4 34.6Z" fill="#FF5B00"/>
+  </g>
+</svg>

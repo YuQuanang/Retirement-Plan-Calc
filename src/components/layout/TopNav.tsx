@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { motion } from 'framer-motion';
-import { Moon, Sun, ChevronDown, Flame } from 'lucide-react';
+import { Moon, Sun, ChevronDown } from 'lucide-react';
 import { useAppStore } from '../../store/useAppStore';
 import { ScenarioPanel } from '../ui/ScenarioPanel';
+import { BrandLogo } from '../ui/BrandLogo';
 
 export function TopNav() {
   const { darkMode, toggleDarkMode, scenarios, activeScenarioId } = useAppStore();
@@ -14,13 +15,11 @@ export function TopNav() {
     <>
       <header className="fixed top-0 inset-x-0 z-30 h-14 flex items-center px-4 lg:px-6 backdrop-blur-xl bg-white/75 dark:bg-zinc-900/75 border-b border-black/[0.06] dark:border-white/[0.08]">
         {/* Logo */}
-        <div className="flex items-center gap-2 mr-6">
-          <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-apple-blue to-indigo-500 flex items-center justify-center">
-            <Flame size={14} className="text-white" strokeWidth={1.5} />
-          </div>
+        <div className="flex items-center gap-2.5 mr-6">
+          <BrandLogo size={28} />
           <div>
-            <span className="text-sm font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">SG FIRE Studio</span>
-            <span className="hidden sm:inline text-[10px] text-zinc-400 dark:text-zinc-500 ml-2 uppercase tracking-wider">Singapore Retirement Toolkit</span>
+            <span className="text-sm font-bold tracking-tight text-zinc-900 dark:text-zinc-100">SG FIRE Studio</span>
+            <span className="hidden sm:inline text-[10px] font-medium text-zinc-400 dark:text-zinc-500 ml-2 uppercase tracking-wider">Singapore Retirement Toolkit</span>
           </div>
         </div>
 

@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { useAppStore } from '../../store/useAppStore';
+import { BrandLogo } from '../ui/BrandLogo';
 import {
   solveRequiredPortfolio,
   solveAccumulation,
@@ -304,11 +305,7 @@ export function PrintDossierDocument({ previewMode = false, pageView = 'all' }: 
             {/* ── Header ── */}
             <div className="flex items-start justify-between pb-2.5 border-b-[2.5px] border-zinc-900">
               <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#0071E3] to-[#5856D6] flex items-center justify-center shrink-0">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" />
-                  </svg>
-                </div>
+                <BrandLogo size={36} hasShadow={false} />
                 <div>
                   <div className="flex items-center gap-2 mb-0.5">
                     <span className="text-[9.5px] font-bold uppercase tracking-widest text-[#0071E3] bg-blue-50 border border-blue-200/60 px-2 py-0.5 rounded-full">
