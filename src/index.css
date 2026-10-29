@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-feature-settings: 'kern' 1;
+  }
+
+  /* Hide scrollbar for tabs while keeping scroll */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer utilities {
+  /* Apple-style tabular nums for financial data */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum' 1;
+  }
+
+  /* Smooth range input track */
+  input[type='range'] {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 0;
+    height: 0;
+  }
+
+  input[type='range']::-moz-range-thumb {
+    width: 0;
+    height: 0;
+    border: none;
+    background: transparent;
+  }
+}
+
+/* Apple Now-Playing Marquee Animation */
+@keyframes apple-marquee-scroll {
+  0%,
+  22% {
+    transform: translateX(0px);
+  }
+  78%,
+  100% {
+    transform: translateX(var(--marquee-distance, 0px));
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   HIGH-FIDELITY PRINT & PDF EXPORT STYLES (EXACT A4 2-PAGE BACK-TO-BACK)
+   ══════════════════════════════════════════════════════════════════════════════ */
+@media screen {
+  #print-dossier-root {
+    position: fixed !important;
+    left: -99999px !important;
+    top: 0 !important;
+    width: 210mm !important;
+    height: auto !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    z-index: -100 !important;
+  }
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 6mm 8mm;
+  }
+
+  *, *:before, *:after {
+    box-sizing: border-box !important;
+  }
+
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    background: #ffffff !important;
+    color: #111111 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide regular UI elements and dialogs when printing */
+  #app-screen-root,
+  .no-print,
+  header,
+  aside,
+  nav,
+  button {
+    display: none !important;
+  }
+
+  /* Show the dedicated print dossier root */
+  #print-dossier-root {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    opacity: 1 !important;
+  }
+
+  /* Page 1 — exact single A4 sheet with zero spillover */
+  .print-page-1 {
+    page-break-after: always !important;
+    break-after: page !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    box-sizing: border-box !important;
+    height: 283mm !important;
+    max-height: 283mm !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  /* Page 2 — exact single A4 sheet with zero spillover */
+  .print-page-2 {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    box-sizing: border-box !important;
+    height: 283mm !important;
+    max-height: 283mm !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  /* Cards retain color fidelity in print */
+  .dossier-card {
+    background-color: #fafafa !important;
+    border: 1px solid #e4e4e7 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* SVG charts must render at full resolution */
+  svg {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    overflow: visible !important;
+  }
+}
+
+
